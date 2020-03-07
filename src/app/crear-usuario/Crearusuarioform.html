@@ -1,0 +1,56 @@
+<mat-card>
+	<div class="container">
+		<span mat-card-title>Resgistro de Usuario</span>
+		<div fxLayout="row" fxLayoutAlign="center">
+			<form novalidate>
+
+				<div fxLayout="column">
+					<mat-form-field>
+						<input type="text" matInput autocomplete="off" placeholder="nombre" required />
+					</mat-form-field>
+
+					<mat-form-field>
+						<mat-select placeholder="apellidos">
+							<mat-option>-</mat-option>
+							<mat-option>name</mat-option>
+						</mat-select>
+					</mat-form-field>
+
+
+					<mat-form-field>
+						<mat-select placeholder="email">
+							<mat-option>-</mat-option>
+							<mat-option>bablabla@bablabla.com</mat-option>
+						</mat-select>
+					</mat-form-field>
+
+
+					<mat-form-field>
+						<mat-select placeholder="edad">
+							<mat-option>18</mat-option>
+							<mat-option>19</mat-option>
+							<mat-option>20</mat-option>
+						</mat-select>
+					</mat-form-field>
+
+
+					<mat-form-field>
+						<textarea matInput placeholder="username"></textarea>
+					</mat-form-field>
+
+					<mat-form-field>
+						<textarea matInput placeholder="password"></textarea>
+					</mat-form-field>
+
+					<br />
+
+					<button mat-raised-button color="primary" type="submit">
+						<span>REGISTRAR</span> </button>
+					<button mat-raised-button type="button">
+						<span>Cancelar</span> </button>
+
+				</div>
+			</form>
+		</div>
+	</div>
+</mat-card>

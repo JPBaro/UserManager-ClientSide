@@ -1,0 +1,61 @@
+   <hr>
+<h5>Formulario de registro</h5>
+    <hr>
+
+
+    <div [hidden]="submitted" style="width: 300px;">
+
+        <form (ngSubmit)="onSubmit()" style="width: 400px; height: 100px;  ">
+
+
+            <div class="form-group">
+
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required [(ngModel)]="usuario.nombre" name="nombre"
+                    style="width: 300px; ">
+
+
+
+
+                <div class="form-group">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidos" required [(ngModel)]="usuario.apellidos"
+                        name="apellidos" style="width: 300px; ">
+
+                </div>
+                
+            <div class="form-group">
+                <label for="name">Email</label>
+                <input type="email" class="form-control" id="email" required [(ngModel)]="usuario.email" name="email"
+                    style="width: 300px; ">
+
+            </div>
+            </div>
+            <div class="form-group">
+                <label for="edad">Edad</label>
+                <input type="number" class="form-control" id="edad" required [(ngModel)]="usuario.edad" name="edad"
+                    style="width: 85px; ">
+            </div>
+            <div class="form-group">
+                <label for="activo">Estado</label>
+                <input type="checkbox" class="form-control" id="activo" required [(ngModel)]="usuario.activo"
+                    name="activo" style="width: 25px; ">
+            </div>
+
+
+             <div class="form-group">
+                <label for="username"> username </label>
+                <input type="text" class="form-control" id="username" required [(ngModel)]="usuario.username" name="username"
+                    style="width: 85px; ">
+            </div>
+           
+            <div>
+                <button type="submit" class="btn btn-success" style="width: 94px; height: 45px">Enviar</button>
+            </div>
+
+        </form>
+
+        <div [hidden]="!submitted">
+            <h3>Guardad con exito</h3>
+        </div>
+    </div>
