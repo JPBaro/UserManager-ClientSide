@@ -1,3 +1,14 @@
+Angular 8 based UI, which is meant to interact with UserManager-ServerSide API REST, being its aim to consult, modify, and delete Users thanks to the logic implemented in UserManager-ServerSide. 
+
+<blockquote> (*)still pending to implement:
+
+* headers according to the comm in between the apis
+* post http through HttpCliendModul not fixed yet
+* routing still in test
+* Authentication and authorization.
+* https (in server side).
+</blockquote>
+
 # ClientUsermanagger
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
