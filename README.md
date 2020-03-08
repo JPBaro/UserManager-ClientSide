@@ -1,4 +1,4 @@
-Angular 8 based UI, which is meant to interact with UserManager-ServerSide API REST, being its aim to consult, modify, and delete Users thanks to the logic implemented in UserManager-ServerSide. 
+Angular 8 based UI, which is meant to interact with <a href="https://github.com/JPBaro/userManager-ServerSide> userManager-ServerSide </a> API REST, being its aim to consult, modify, and delete Users thanks to the logic implemented in UserManager-ServerSide. 
 
 <blockquote> (*)still pending to implement:
 
