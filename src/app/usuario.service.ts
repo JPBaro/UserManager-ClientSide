@@ -26,9 +26,10 @@ export class UsuarioService {
     return this.http.get(`${this.baseUrl}/${username}`, { headers: this.headers });
   }
 
-  crearUsuario(usuario: Usuario): Observable<Object> {
+  crearUsuario(usuario: Usuario): Observable<any> {
 
     return this.http.post(this.baseUrl.concat('npsw'), usuario);
+    
   }
 
   updateUsuario(username: string, value: any): Observable<Object> {
@@ -41,8 +42,8 @@ export class UsuarioService {
 
   getUsuariosList(): Observable<any> {
     let headers = new HttpHeaders();
-    headers = headers.append("Authorization", "Basic " + btoa("jpb:123"));//     pendiente revisar!!!!!
-    headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
+    headers = headers.append('Authorization', 'Basic' + btoa('jpb:123'));//     pendiente revisar!!!!!
+    headers = headers.append('Content-Type', 'application/x-www-form-urlencoded');
     return this.http.get(`${this.baseUrl}`, { headers: this.headers });
   }
 

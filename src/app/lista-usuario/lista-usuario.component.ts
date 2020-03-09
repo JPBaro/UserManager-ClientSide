@@ -21,26 +21,27 @@ export class ListaUsuarioComponent implements OnInit {
 
   ngOnInit() {
     this.usuarioService.getUsuario.bind
-    ( data => {
-        this.usuario = data ; })
-    this.reloadData();
+      (data => {
+        this.usuario = data;
+      })
+    this.reloadData();//ok
   }
 
   reloadData() {
     return this.usuarios = this.usuarioService.getUsuariosList();
   }
 
-deleteUsuario(username: string) {  
-    this.usuarioService.deleteUsuario(username)  
-      .subscribe(  
-        data => {  
-          console.log(data); 
-          this.usuarioService.getUsuariosList().subscribe(data =>{  
-            this.usuarios =data  
-            })  
-        },  
-        error => console.log(error));  
-  }  
+  deleteUsuario(username: string) {
+    this.usuarioService.deleteUsuario(username)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.usuarioService.getUsuariosList().subscribe(data => {
+            this.usuarios = data
+          })
+        });
+    this.ngOnInit();
+  }
 
   usarioDetalles(username: string) {
     this.router.navigate(['info/', username]);
