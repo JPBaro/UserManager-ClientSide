@@ -8,6 +8,7 @@ import { DetallesUsuarioComponent } from './detalles-usuario/detalles-usuario.co
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { UsuarioRegistroComponent } from './usuario-registro/usuario-registro.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     ListaUsuarioComponent,
     DetallesUsuarioComponent,
     CrearUsuarioComponent,
+    UsuarioRegistroComponent,
   ],
   imports: [
     BrowserModule,
