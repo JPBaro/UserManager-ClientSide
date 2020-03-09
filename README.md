@@ -1,10 +1,10 @@
-Angular 8 based UI, which is meant to interact with <a href="https://github.com/JPBaro/userManager-ServerSide"> userManager-ServerSide </a> API REST, being its aim to consult, modify, and delete Users thanks to the logic implemented in UserManager-ServerSide. 
+Angular 8 based UI, which is meant to interact with <a href="https://github.com/JPBaro/userManager-ServerSide"> userManager-ServerSide (branch No-Auth)</a> API REST, being its aim to consult, modify, and delete Users thanks to the logic implemented in UserManager-ServerSide. 
 
 <blockquote> (*)still pending to implement:
 
 * headers according to the comm in between the apis
 * routing still in test
-* Authentication and authorization.
+* Authentication and authorization. * right now working fine whith branch Not-Auth <a href="https://github.com/JPBaro/userManager-ServerSide"> userManager-ServerSide
 * https (in server side).
 </blockquote>
 
