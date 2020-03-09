@@ -4,7 +4,7 @@ Angular 8 based UI, which is meant to interact with <a href="https://github.com/
 
 * headers according to the comm in between the apis
 * routing still in test
-* Authentication and authorization. * right now working fine whith branch Not-Auth <a href="https://github.com/JPBaro/userManager-ServerSide"> userManager-ServerSide
+* Authentication and authorization. * right now working fine whith branch Not-Auth <a href="https://github.com/JPBaro/userManager-ServerSide"> userManager-ServerSide </a>.
 * https (in server side).
 </blockquote>
 
