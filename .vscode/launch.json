@@ -13,12 +13,12 @@
       "url": "http://localhost:4200/"
     },
     {
-      "name": "Launch Chrome 127.0.0.1",
+      "name": "Launch Chrome localhost (1)",
       "type": "chrome",
       "request": "launch",
-      "port": 9201,
+      "port": 9232,
       "webRoot": "${workspaceFolder}",
-      "url": "http://127.0.0.1:50405/p/UserManager-ClientSide/?_cmAuth\u003dvhjjlusidx"
+      "url": "http://localhost:4201/"
     }
   ]
 }

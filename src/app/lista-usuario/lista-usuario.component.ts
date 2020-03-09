@@ -15,15 +15,14 @@ import { Usuario } from '../usuario';
 export class ListaUsuarioComponent implements OnInit {
 
   usuarios: Observable<Usuario[]>;
-  usuario: Usuario;
-  username: string;
+
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit() {
-    this.usuarioService.getUsuario.bind
-      (data => {
-        this.usuario = data;
-      })
+    //this.usuarioService.getUsuario.bind
+    //(data => {
+    //  this.usuario = data;
+    // });
     this.reloadData();//ok
   }
 
@@ -36,11 +35,9 @@ export class ListaUsuarioComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this.usuarioService.getUsuariosList().subscribe(data => {
-            this.usuarios = data
-          })
-        });
-    this.ngOnInit();
+          this.reloadData();
+        },
+        error => console.log(error));
   }
 
   usarioDetalles(username: string) {
