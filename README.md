@@ -3,7 +3,6 @@ Angular 8 based UI, which is meant to interact with <a href="https://github.com/
 <blockquote> (*)still pending to implement:
 
 * headers according to the comm in between the apis
-* post http through HttpCliendModul not fixed yet
 * routing still in test
 * Authentication and authorization.
 * https (in server side).
