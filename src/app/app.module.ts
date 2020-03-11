@@ -9,6 +9,7 @@ import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { UsuarioRegistroComponent } from './usuario-registro/usuario-registro.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { UsuarioRegistroComponent } from './usuario-registro/usuario-registro.co
     DetallesUsuarioComponent,
     CrearUsuarioComponent,
     UsuarioRegistroComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
