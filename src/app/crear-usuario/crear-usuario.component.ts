@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../usuario';
 import { UsuarioService } from '../usuario.service';
-import { PasswordEntidad } from '../passwordentidad';
+
 
 
 
@@ -14,7 +14,6 @@ import { PasswordEntidad } from '../passwordentidad';
 export class CrearUsuarioComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
-  password: PasswordEntidad = new PasswordEntidad(); //revisar como hacer
   submitted = false;
 
   constructor(private usuarioService: UsuarioService, private router: Router) { }
@@ -31,13 +30,11 @@ export class CrearUsuarioComponent implements OnInit {
     this.usuarioService.crearUsuario(this.usuario).subscribe(data => console.log(data), error => console.log(error));
     this.usuario = new Usuario();
     this.gotoList();
-
   }
 
   onSubmit() {
     this.submitted = true;
     this.save();
-
   }
 
   gotoList() {

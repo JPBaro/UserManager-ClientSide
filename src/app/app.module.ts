@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { UsuarioRegistroComponent } from './usuario-registro/usuario-registro.component';
 import { LoginComponent } from './login/login.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { authInterceptorProviders } from './auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

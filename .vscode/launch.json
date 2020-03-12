@@ -19,6 +19,14 @@
       "port": 9232,
       "webRoot": "${workspaceFolder}",
       "url": "http://localhost:4201/"
+    },
+    {
+      "name": "Launch Chrome UserManager-ClientSide on Angular CLI Server",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9246,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:4200/#"
     }
   ]
 }
