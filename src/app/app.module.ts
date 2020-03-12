@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { UsuarioRegistroComponent } from './usuario-registro/usuario-registro.component';
 import { LoginComponent } from './login/login.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { LoginComponent } from './login/login.component';
     CrearUsuarioComponent,
     UsuarioRegistroComponent,
     LoginComponent,
+    MainNavComponent,
   ],
   imports: [
     BrowserModule,
