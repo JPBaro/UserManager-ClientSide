@@ -1,32 +1,114 @@
 <div id="app">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <a href="#" class="navbar-brand">USUARI@S</a>
+    <a class="navbar navbar-expand-sm " style="background-color: darkslategrey;" href="/">
+        <h1> Aplicacion WEB - JPBaro</h1>
+    </a>
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: teal;">
+
+
+        <a class="navbar-light">
+            <h3> USUARI@S </h3>
+
+            <img style="float: inline-start;" *ngIf="isLoggedIn" 
+                src="https://cdn3.iconfinder.com/data/icons/toolbar-people/512/user_login_man_profile_account-512.png"
+                width="45"/>
+
+            <a href class="nav-link" *ngIf="isLoggedIn" (click)="logout()">LogOut</a>
+
+
+
+            <li class="nav-item">
+
+                <a href="/login" routerLink="login"><img style="float: inline-start;" *ngIf="!isLoggedIn"
+                        style="margin-left: 20px;"
+                        src="https://www.pinclipart.com/picdir/middle/357-3577716_login-icon-rbac-in-kubernetes-clipart.png"
+                        width="45" title="Login~ username/password : jpb/123" /></a>
+            </li>
+
+
+        </a>
+
+
+
+
+
+        <!--    -->
         <ul class="navbar-nav mr-auto" routerLinkActive="active">
+
+            <!--    -->
             <li class="nav-item">
-                <a href="/main" class="nav-link" routerLink="main">Main Test </a>
+                <a href="/main" class="nav-link" *ngIf="isLoggedIn" routerLink="main">MENU</a>
             </li>
 
             <li class="nav-item">
-                <a href="/main" class="nav-link" *ngIf="isLoggedIn" routerLink="main">Main MENU</a>
+                <a routerLink="main/usuarios" class="btn btn-primary active" *ngIf="isLoggedIn"
+                    style="color: black; background-color:darkseagreen ;" role="button"
+                    routerLinkActive="active">Listado
+                    & Gestion </a>
             </li>
+            <li class="nav-item" style="margin-left: 10px;">
+                <a routerLink="creacion" class="btn btn-primary active" *ngIf="isLoggedIn"
+                    style="color: black; background-color:darkseagreen ;" role="button"
+                    routerLinkActive="active">Registro
+                </a>
+            </li>
+            <li class="nav-item" style="margin-left: 10px;">
+                <a routerLink="creacionbeta" class="btn btn-primary active" *ngIf="isLoggedIn"
+                    style="color: black; background-color:darkseagreen ;" role="button"
+                    routerLinkActive="active">RegistroBeta!!
+                </a>
+            </li>
+            <div></div>
+            <li class="btn-group dropright" style="margin-left: 10px;">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" style="color: black; background-color:darkseagreen ;"
+                    data-toggle="dropdown">
+                    Ayuda & Recursos
+                </button>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+
+                    <a class="dropdown-item" style="color: black;"
+                        href="https://github.com/JPBaro/UserManager-ClientSide">Github ~ this app</a>
+                    <div class="dropdown-divider"></div>
+
+                    <a class="dropdown-item" style="color: black;"
+                        href="https://github.com/JPBaro/UserManager-ServerSide">Github ~ Who this app talks to...</a>
+                    <div class="dropdown-divider"></div>
+
+                    <a class="dropdown-item " style="color: black;" href="mailto:joaquinpb.tech@gmail.com">Contact @
+                    </a>
+                    <div class="dropdown-divider"></div>
+                </div>
+
+            </li>
+
+
+
+
         </ul>
 
-        <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
 
-            <li class="nav-item">
-                <a href="/login" class="nav-link" routerLink="login">Login</a>
-            </li>
-        </ul>
 
+        <!--    -->
         <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-
+            <!--    -->
             <li class="nav-item">
-                <a href class="nav-link" (click)="logout()">LogOut</a>
+                <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
             </li>
+
+            <!--    -->
+
         </ul>
     </nav>
 
+    <!--    -->
     <div class="container">
-        <router-outlet></router-outlet>
+        <router-outlet>
+
+
+
+
+        </router-outlet>
     </div>
 </div>

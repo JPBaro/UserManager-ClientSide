@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
@@ -11,7 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { UsuarioRegistroComponent } from './usuario-registro/usuario-registro.component';
 import { LoginComponent } from './login/login.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
-import { authInterceptorProviders } from './auth-interceptor.service';
+import { AuthInterceptor } from './_helpers/auth.interceptor';
+import { HomepageComponent } from './homepage/homepage.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { authInterceptorProviders } from './auth-interceptor.service';
     UsuarioRegistroComponent,
     LoginComponent,
     MainNavComponent,
+    HomepageComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { authInterceptorProviders } from './auth-interceptor.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [authInterceptorProviders],
-  bootstrap: [AppComponent]
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  bootstrap: [AppComponent, MainNavComponent]
 })
 export class AppModule { }

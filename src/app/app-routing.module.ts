@@ -7,14 +7,16 @@ import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { UsuarioRegistroComponent } from './usuario-registro/usuario-registro.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LoginComponent } from './login/login.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'homepage', pathMatch: 'full' },
+  { path: 'homepage', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainNavComponent },
   { path: 'main/usuarios', component: ListaUsuarioComponent },
-  { path: 'main/creacion', component: CrearUsuarioComponent },
+  { path: 'creacion', component: CrearUsuarioComponent },
   { path: 'info/:username', component: DetallesUsuarioComponent },
   { path: 'creacionbeta', component: UsuarioRegistroComponent }
 
