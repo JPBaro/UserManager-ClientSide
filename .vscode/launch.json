@@ -10,23 +10,31 @@
       "request": "launch",
       "port": 9225,
       "webRoot": "${workspaceFolder}",
-      "url": "http://192.168.1.148:4200/"
-    },
-    {
-      "name": "MAIN IP Chrome localhost",
-      "type": "chrome",
-      "request": "launch",
-      "port": 9225,
-      "webRoot": "${workspaceFolder}",
-      "url": "http://192.168.1.148:4200/"
+      "url": "http://localhost:4200/"
     },
     {
       "name": "Launch Chrome localhost (1)",
       "type": "chrome",
       "request": "launch",
-      "port": 9222,
+      "port": 9232,
       "webRoot": "${workspaceFolder}",
-      "url": "http://localhost:4200/"
+      "url": "http://localhost:4201/"
+    },
+    {
+      "name": "Launch Chrome UserManager-ClientSide on Angular CLI Server",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9246,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:4200/#"
+    },
+    {
+      "name": "Launch Chrome appClient",
+      "type": "chrome",
+      "request": "launch",
+      "port": 9280,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://appClient"
     }
   ]
 }

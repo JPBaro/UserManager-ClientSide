@@ -1,9 +1,0 @@
-html, body { height: 100%; }
-body { 
-    margin: 0; 
-    font-family: 'Times New Roman', Times, serif;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    background-color: #3a3a3a;
-}
