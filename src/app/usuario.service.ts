@@ -14,7 +14,7 @@ export class UsuarioService {
 
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://192.168.1.10:8080/manager-tool/users'; // provisional routing! to app1 
+    this.baseUrl = 'http://localhost:8080/manager-tool/users'; // provisional routing! to app1 
     // this.headers = new HttpHeaders({
     //   'Content-Type': 'application/json',
     //   'Content-Encoding': '',
@@ -46,7 +46,7 @@ export class UsuarioService {
     // headers = headers.append('Authorization', 'Basic' + btoa('jpb:123'));//     pendiente revisar!!!!!
     // headers = headers.append('Content-Type', 'application/x-www-form-urlencoded');
     // return this.http.get(`${this.baseUrl}`, { headers: this.headers });
-    return this.http.get(`${this.baseUrl}`, { responseType: 'text' });
+    return this.http.get(`${this.baseUrl}`, { responseType: 'json' });
   }
 
 }

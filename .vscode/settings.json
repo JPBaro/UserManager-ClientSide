@@ -1,0 +1,12 @@
+{
+    "editor.fontSize": 10,
+    "workbench.tree.indent": 10,
+    "javascript.format.insertSpaceAfterConstructor": true,
+    "http.proxyStrictSSL": false,
+    "http.systemCertificates": false,
+    "debug.console.fontSize": 10,
+    "terminal.integrated.fontSize": 10,
+    "markdown.preview.fontSize": 9,
+    "editor.suggestFontSize": 9,
+    "editor.mouseWheelZoom": true
+}

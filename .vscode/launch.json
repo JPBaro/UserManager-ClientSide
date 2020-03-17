@@ -4,29 +4,14 @@
 {
   "version": "0.2.0",
   "configurations": [
+    
     {
-      "name": "Launch Chrome localhost",
-      "type": "chrome",
+      "type": "firefox",
       "request": "launch",
-      "port": 9225,
-      "webRoot": "${workspaceFolder}",
-      "url": "http://192.168.1.148:4200/"
-    },
-    {
-      "name": "MAIN IP Chrome localhost",
-      "type": "chrome",
-      "request": "launch",
-      "port": 9225,
-      "webRoot": "${workspaceFolder}",
-      "url": "http://192.168.1.148:4200/"
-    },
-    {
-      "name": "Launch Chrome localhost (1)",
-      "type": "chrome",
-      "request": "launch",
-      "port": 9222,
-      "webRoot": "${workspaceFolder}",
-      "url": "http://localhost:4200/"
+      "reAttach": true,
+      "name": "Launch localhost",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
     }
   ]
 }

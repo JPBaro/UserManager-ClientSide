@@ -70,7 +70,8 @@ export class AppComponent implements OnInit {
 
     console.log('onSubmit LOGIN');
     this.submitted = true;
-    this.authService.login(this.registerForm.value).subscribe(
+    this.authService.loginC(this.registerForm.value)
+    .subscribe(
       data => {
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
