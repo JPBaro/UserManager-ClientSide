@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpBackend  } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpBackend } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
@@ -38,12 +38,12 @@ export class AuthService {
 
     const headersIn = new HttpHeaders().append('Content-Type', 'application/json');
 
-    
+
     const postData = new FormData(); // use FormData for post username and password
     postData.append('username', credentials.username);
     postData.append('password', credentials.password);
-    return this.httpClient.post<any>(AUTH_API, postData,{observe: 'response', responseType: 'json' },) ;
-    
+    return this.httpClient.post<any>(AUTH_API, postData, { observe: 'response', responseType: 'json' });
+
   }
 
   /*

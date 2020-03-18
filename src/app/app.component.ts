@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
 export class AppComponent implements OnInit {
   title = ' GESTION-USUARI@S';
-  
+
   // components for LOGIN
   private roles: string[];
   isLoggedIn = false;
@@ -21,14 +21,18 @@ export class AppComponent implements OnInit {
   username: string;
   isLoginFailed = false;
   errorMessage = 'oh my god!!';
-  showModal: boolean;
+
+  showLogin: boolean;
+  showInfo: boolean;
+
+
   registerForm: FormGroup;
   loginEvent: LoginComponent;
   submitted = false;
 
   //Imported services for Login
 
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -36,14 +40,24 @@ export class AppComponent implements OnInit {
     private router: Router) { }
 
   // SHOW LOGIN FORM POPUP (TRUE)
-  show() {
-    console.log('peix');
-    this.showModal = true; // Show-Hide Modal Check
+  show(id) {
+    if (id == 'loginPopup') {
+      this.showLogin = true; // Show-Hide Modal Check 
+    }
+    if (id == 'infoPopup') {
+    }
   }
 
   // Bootstrap Modal Close event
-  hide() {
-    this.showModal = false;
+  hide(id) {
+    if(id == 'loginPopup'){
+    this.showLogin = false;
+    }
+    if(id == 'infoPopup'){
+      this.showInfo = false;
+      }
+
+
   }
 
   ngOnInit() {
@@ -70,35 +84,36 @@ export class AppComponent implements OnInit {
 
     console.log('onSubmit LOGIN');
     this.submitted = true;
-    this.authService.loginC(this.registerForm.value)
-    .subscribe(
-      data => {
-        this.tokenStorage.saveToken(data.token);
-        this.tokenStorage.saveUser(data);
 
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
-        // this.reloadPage(); ver como hacer cuando isLoggedIn true
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
-      }
-    );
+
+    this.authService.loginC(this.registerForm.value)
+      .subscribe(
+        data => {
+          this.tokenStorage.saveToken(data.token);
+          this.tokenStorage.saveUser(data);
+
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          this.roles = this.tokenStorage.getUser().roles;
+          // this.reloadPage(); ver como hacer cuando isLoggedIn true
+        },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isLoginFailed = true;
+        }
+      );
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
     if (this.submitted) {
-      this.showModal = false;
-    }
+      this.registerForm.disable;    }  // revisar como se cierra al click envio
 
   }
   logout() {
     this.tokenStorage.signOut();
-     /// pensar logout
+    /// pensar logout
     window.location.reload();
     this.router.navigate(['/homepage']);
   }

@@ -36,6 +36,7 @@ export class ListaUsuarioComponent implements OnInit {
         data => {
           console.log(data);
           this.reloadData();
+          
         },
         error => console.log(error));
   }

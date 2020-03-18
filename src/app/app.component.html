@@ -1,86 +1,139 @@
 <style>
+    .menuleft {
 
-    .menu {
         float: left;
-        width: 15%;
+        width: fit-content;
         height: 100%;
         text-align: center;
+
+        background-color: rgb(194, 175, 211);
     }
 
-    .menu a {
-        background-color: #e5e5e5;
+    .menuright {
+        background-color: rgba(0, 238, 255, 0.068);
         padding: 8px;
         margin-top: 7px;
-        display: block;
-        width: 100%;
+        display: -ms-flexbox;
+        width: fit-content;
         color: black;
     }
-
-    .main {
-        float: left;
-        width: 60%;
-        padding: 0 20px;
-    }
-
-
 </style>
 
 
 
 <div id="app">
-    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: darkseagreen;" href="/">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Action 1</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#informacionpop">@Contacto</button>
+            </form>
+        </div>
+    </nav>
+
+    <nav class="navbar" style="background-color: teal;">
+
+        <!-- LOGIN STATUS  TRUE VS FALSE WITH ICONS   -->
+        <!-- NOT looged IN --   -->
+
+        <a>
+            <button class="btn btn-primary" *ngIf="!isLoggedIn" data-toggle="modal"
+                data-target="#loginform">LOGIN</button>
+        </a>
+
+        <!--  looged IN  -->
+        <a *ngIf="isLoggedIn">
+            <img style="float: inline-start;"
+                src="https://media-exp1.licdn.com/dms/image/C5603AQFMpJR-VMj9fA/profile-displayphoto-shrink_200_200/0?e=1590019200&v=beta&t=Zh29e12DfuKkAuZLnMmgCaERQ0LpPlceYDQdWt9jIAw"
+                class="rounded-circle" width="70px" />
+
+        </a>
+
+
+        <a *ngIf="isLoggedIn" style="align-self: flex-end;">
+            <img type="button"
+                src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-9%2F512%2FLogout-icon.png&f=1&nofb=1"
+                width="60px" (click)="logout()">
+
+
+        </a>
+
 
     </nav>
-    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: teal;">
 
-        <div class="MENU">
-            <div>
-                <h5> USUARI@ </h5>
+
+    <!-- Extra Large modal -->
+
+
+    <div id="informacionpop" class="modal fade" tabindex="1" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Informacion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+
+                <div class="modal-body">
+
+                    <img class="rounded-circle"
+                        src="https://media-exp1.licdn.com/dms/image/C5603AQFMpJR-VMj9fA/profile-displayphoto-shrink_200_200/0?e=1590019200&amp;v=beta&amp;t=Zh29e12DfuKkAuZLnMmgCaERQ0LpPlceYDQdWt9jIAw"
+                        style="padding-left: 0px;padding-right: 0px;border-left-width: 1px;border-left-style: solid;border-right-width: 1px;border-right-style: solid;margin-left: autp;margin-right: auto;">
+                    Contactame!! J Pampin
+                    <a>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Send-email.svg/980px-Send-email.svg.png"
+                            height="50" width="60" type="button" href="mailto:joaquinpb.tech@gmail.com">
+                    </a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Cerrar</button>
+                </div>
             </div>
-
-            <!-- LOGIN STATUS  TRUE VS FALSE WITH ICONS   -->
-            <!-- NOT looged IN --   -->
-            <a>
-                <button type="button" *ngIf="!isLoggedIn" (click)="show()" mdbWavesEffect><img
-                        style="width: 30px; height: 40px;"
-                        src="https://www.pinclipart.com/picdir/middle/357-3577716_login-icon-rbac-in-kubernetes-clipart.png"
-                        title="Login~ username/password : jpb/123" />
-                </button>
-            </a>
-
-            <!--  looged IN  -->
-            <a *ngIf="isLoggedIn">
-                <img style="float: inline-start;"
-                    src="https://media-exp1.licdn.com/dms/image/C5603AQFMpJR-VMj9fA/profile-displayphoto-shrink_200_200/0?e=1590019200&v=beta&t=Zh29e12DfuKkAuZLnMmgCaERQ0LpPlceYDQdWt9jIAw"
-                    class="rounded-circle" width="70px" />
-
-
-                <img type="button"
-                    src="http://www.myiconfinder.com/uploads/iconsets/256-256-bc81dd441f1d3d7db2ae9537df2fab9b-logout.png"
-                    width="60px" (click)="logout()">
-            </a>
         </div>
+    </div>
 
 
 
 
-        <!-- POP UP WINDOW FOR LOGIN -->
-        <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="form"
-            aria-labelledby="myLoginlLabel" aria-hidden="true" style="align-items: center; backdrop-filter: initial;">
+    <!-- POP UP WINDOW FOR LOGIN -->
+    <div id="loginform" class="modal fade" tabindex="1" role="form">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">LOGIN</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-            <div class="modal-dialog" style="align-items: center; height: fit-content;width: fit-content;">
+                </div>
 
-                <div class="modal-content" style="align-items: center;">
+
+                <div class="modal-body"
+                    style="background-color: #69968c70;fill-rule: initial;/*! width: px; */border-top-style: solid;padding-top: 30px;padding-bottom: 20px;border-top-width: 0px;">
+                    <img class="rounded-circle"
+                        src="https://media-exp1.licdn.com/dms/image/C5603AQFMpJR-VMj9fA/profile-displayphoto-shrink_200_200/0?e=1590019200&amp;v=beta&amp;t=Zh29e12DfuKkAuZLnMmgCaERQ0LpPlceYDQdWt9jIAw"
+                        style="padding-left: 2px;padding-right: 0px;border-left-width: 1px;border-left-style: solid;border-right-width: 1px;border-right-style: solid;margin-left: auto;margin-right: auto; margin-bottom: 5%;">
+
+
                     <div class="container">
-                        <button type="button" class="btn" data-dismiss="modal" (click)="hide()">[x]</button>
-
-                    </div>
-                    <div class="modal-header" style="align-items: center;">
-                        <img src="https://media-exp1.licdn.com/dms/image/C5603AQFMpJR-VMj9fA/profile-displayphoto-shrink_200_200/0?e=1590019200&v=beta&t=Zh29e12DfuKkAuZLnMmgCaERQ0LpPlceYDQdWt9jIAw"
-                            class="rounded-circle">
-                    </div>
-
-                    <div class=" modal-body" style="background-color: darkgrey;">
                         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
 
@@ -88,7 +141,8 @@
                                 <mat-form-field appearance="fill">
                                     <mat-label>Username</mat-label>
                                     <input matInput type="text" placeholder="abcd" formControlName="username">
-                                    <mat-error *ngIf="f.username.errors" class="invalid-feedback">Revisa tu 'username'
+                                    <mat-error *ngIf="f.username.errors" class="invalid-feedback">Revisa tu
+                                        'username'
                                     </mat-error>
 
                                 </mat-form-field>
@@ -104,85 +158,123 @@
                             </div>
 
 
-                            <div class="form-group form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="remember"> Recuerdame
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="submit" class="btn btn-primary" aria-hidden="true">Enviar</button>
                         </form>
                     </div>
 
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+
+    <!-- revisar   -->
+
+    <div [style.display]="showLogin ? 'block' : 'none'" class="modal" id="loginform2" tabindex="1" role="form"
+        aria-labelledby="myLoginlLabel" aria-hidden="true" style="align-items: center; display: block;" tabindex="1">
+
+        <div _ngcontent-eam-c0="" class="modal-dialog"
+            style="width: fit;margin-top: auto;margin-bottom: auto;bottom: auto;left: auto;top: auto;right: auto;">
+
+            <div _ngcontent-eam-c0="" class="modal-content"
+                style="/*! align-items: center; */width: 50%;height: 50%;top: 100px;">
+                <div _ngcontent-eam-c0="" class="container"><button _ngcontent-eam-c0="" class="btn"
+                        data-dismiss="modal" type="button"
+                        style="margin-left: 160px;padding-left: 0px;padding-right: 0px;"
+                        (click)="hide('loginPopup')">[x]</button>
+                </div>
+                <div class="modal-header"
+                    style="border-bottom-width: 0px;padding-bottom: 0px;padding-top: 0px;margin-top: 20px;"><img
+                        class="rounded-circle"
+                        src="https://media-exp1.licdn.com/dms/image/C5603AQFMpJR-VMj9fA/profile-displayphoto-shrink_200_200/0?e=1590019200&amp;v=beta&amp;t=Zh29e12DfuKkAuZLnMmgCaERQ0LpPlceYDQdWt9jIAw"
+                        style="padding-left: 0px;padding-right: 0px;border-left-width: 1px;border-left-style: solid;border-right-width: 1px;border-right-style: solid;margin-left: autp;margin-right: auto;">
+                </div>
+
+                <div _ngcontent-eam-c0="" class=" modal-body"
+                    style="background-color: #69968c70;fill-rule: initial;/*! width: px; */border-top-style: solid;padding-top: 30px;padding-bottom: 20px;border-top-width: 0px;">
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
 
+                        <div class="example-container">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Username</mat-label>
+                                <input matInput type="text" placeholder="abcd" formControlName="username">
+                                <mat-error *ngIf="f.username.errors" class="invalid-feedback">Revisa tu
+                                    'username'
+                                </mat-error>
 
-
-
-
-    <div>
-        <div class="menu">
-
-            <div class="vertical-nav bg-white" id="sidebar" style="background-color: darkseagreen;">
-                <!--  MENU NAVEGACION    -->
-                <ul class="navbar-nav mr-auto" routerLinkActive="active">
-
-                    <!--    -->
-
-                    <li class="nav-item" style="margin-left: 10px;">
-                        <a routerLink="usuarios" class="btn btn-primary active" *ngIf="isLoggedIn"
-                            style="color: black; background-color:darkseagreen ;" role="button"
-                            routerLinkActive="active">Listado & Gestion </a>
-                    </li>
-                    <li class="nav-item" style="margin-left: 10px;">
-                        <a routerLink="creacion" class="btn btn-primary active" *ngIf="isLoggedIn"
-                            style="color: black; background-color:darkseagreen ;" role="button"
-                            routerLinkActive="active">Registro
-                        </a>
-                    </li>
-                    <li class="nav-item" style="margin-left: 10px;">
-                        <a routerLink="creacionbeta" class="btn btn-primary active" *ngIf="isLoggedIn"
-                            style="color: black; background-color:darkseagreen ;" role="button"
-                            routerLinkActive="active">RegistroBeta!!
-                        </a>
-                    </li>
-                    <div></div>
-                    <li class="nav-item" style="margin-left: 10px;">
-                        <button type="menu" class="btn dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"
-                            style="color: black; background-color:darkseagreen ;" data-toggle="dropdownMenu2">
-                            Info
-                        </button>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-
-
-                            <a class="dropdown-item" style="color: black;"
-                                href="https://github.com/JPBaro/UserManager-ClientSide">Github ~ ClientSide</a>
-                            <div class="dropdown-divider"></div>
-
-                            <a class="dropdown-item" style="color: black;"
-                                href="https://github.com/JPBaro/UserManager-ServerSide">Github ~ ServerSide</a>
-                            <div class="dropdown-divider"></div>
-
-                            <a class="dropdown-item " style="color: black;"
-                                href="mailto:joaquinpb.tech@gmail.com">Contact @
-                            </a>
+                            </mat-form-field>
                         </div>
 
-                    </li>
+                        <div class="example-container">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Password</mat-label>
+                                <input matInput type="password" placeholder="***" formControlName="password">
+                                <mat-error *ngIf="f.password.errors" class="invalid-feedback">min 3 caracteres
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
 
 
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> Recuerdame
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
 
-
-                </ul>
             </div>
         </div>
-        <div class="main">
-            <router-outlet></router-outlet>
+    </div>
+</div>
 
+
+<div class="container">
+    <!--Row with two columns divided in 1:3 ratio-->
+    <div class="row">
+        <div class="col-md-3">
+            <div>
+                <div class="menuleft">
+                    <div class="vertical-nav bg-white" id="sidebar" style="background-color: darkseagreen;">
+                        <!--  MENU NAVEGACION    -->
+                        <div class="bs-example">
+                            <nav class="nav flex-column">
+                                <a href="#" class="nav-item nav-link active" style="outline-style: solid;">Home</a>
+                                <a href="#" class="nav-item nav-link">Profile</a>
+                                <a href="#" class="nav-item nav-link">Messages</a>
+                                <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+                            </nav>
+                        </div>
+                        <button class="btn">
+                            Notification <span class="badge badge-primary"></span>
+                        </button>
+                        <ul class="navbar-nav mr-auto" routerLinkActive="active">
+                            <li class="nav-item" style="margin-left: 10px;">
+                                <a routerLink="usuarios" class="btn btn-primary active" *ngIf="isLoggedIn"
+                                    style="color: black; background-color:darkseagreen ;" role="button"
+                                    routerLinkActive="active">Listado &
+                                    Gestion </a>
+                            </li>
+                            <li class="nav-item" style="margin-left: 10px;">
+                                <a routerLink="creacion" class="btn btn-primary active" *ngIf="isLoggedIn"
+                                    style="color: black; background-color:darkseagreen ;" role="button"
+                                    routerLinkActive="active">Registro
+                                </a>
+                            </li>
+                            <li class="nav-item" style="margin-left: 10px;">
+                                <a routerLink="creacionbeta" class="btn btn-primary active" *ngIf="isLoggedIn"
+                                    style="color: black; background-color:darkseagreen ;" role="button"
+                                    routerLinkActive="active">RegistroBeta!!
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
         </div>
     </div>
+</div>
